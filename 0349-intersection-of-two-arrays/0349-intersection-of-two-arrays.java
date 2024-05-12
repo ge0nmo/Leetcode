@@ -6,38 +6,30 @@ class Solution {
         
         Set<Integer> set = new HashSet();
         
-        int lt = 0;
-        int rt = 0;
-        Arrays.sort(nums1);
-        Arrays.sort(nums2);
+        Set<Integer> duplication = new HashSet();
         
-        while(lt < nums1.length && rt < nums2.length)
+        for(int i = 0; i < nums1.length; i++)
         {
-            if(nums1[lt] == nums2[rt])
-            {
-                set.add(nums1[lt]);
-                lt++;
-                rt++;
-            }
-            
-            else if (nums1[lt] > nums2[rt])
-                rt++;
-            
-            else if (nums1[lt] < nums2[rt])
-                lt++;            
+            set.add(nums1[i]);
         }
         
-        int[] answer = new int[set.size()];
+        for(int i = 0; i < nums2.length; i++)
+        {
+            if(set.contains(nums2[i]))
+                duplication.add(nums2[i]);
+            
+        }
         
-        Iterator<Integer> iterator = set.iterator();
+        
+        int[] answer = new int[duplication.size()];
         
         int i = 0;
-        while(iterator.hasNext())
+        for(Integer n : duplication)
         {
-            answer[i] = iterator.next();
+            answer[i] = n;
             i++;
         }
-        
         return answer;
+        
     }
 }
