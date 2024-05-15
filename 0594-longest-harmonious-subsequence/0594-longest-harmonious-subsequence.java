@@ -1,25 +1,22 @@
+import java.util.*;
+
 class Solution {
-    public int findLHS(int[] nums) {
-        Arrays.sort(nums);
+    public int findLHS(int[] nums) {        
+        Map<Integer, Integer> map = new HashMap();
         
-        int lt = 0;
-        int length = 0;
-        int max = 0;
-        
-        for(int rt = 1; rt < nums.length; rt++)
+        for(int num : nums)
         {
-            while(nums[rt] - nums[lt] > 1)
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        
+        int max = 0;
+        for(int num : map.keySet())
+        {
+            if(map.containsKey(num + 1))
             {
-                lt++;
+                max = Math.max(max, map.get(num) + map.get(num + 1));
             }
             
-            if(nums[rt] - nums[lt] == 1)
-            {
-                length = rt - lt + 1;
-                max = Math.max(length, max);
-            }
-            
-                
         }
         
         return max;
