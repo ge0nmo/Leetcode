@@ -5,14 +5,16 @@ class Solution {
         String pop = "Pop";
         
         int start = 1;
-        for(int i = 0; i < target.length; i++)
+        for(int num : target)
         {
-            answer.add(push);
-            if(target[i] != start)
+            while(num != start)
             {
+                answer.add(push);
                 answer.add(pop);
-                i--;
+                start++;
             }
+            
+            answer.add(push);
             start++;
         }
         
