@@ -1,14 +1,15 @@
 class Solution {
     public boolean checkIfExist(int[] arr) {
+        Set<Integer> set = new HashSet();
         
-        for(int i = 0; i < arr.length - 1; i++)
+        for(int num : arr)
         {
-            for(int j = i + 1; j < arr.length; j++)
-            {
-                if(arr[i] == arr[j] * 2 || arr[j] == arr[i] * 2)
-                    return true;
-            }
+            if(set.contains(num * 2) || (num % 2 == 0 && set.contains(num / 2)))
+                return true;
+         
+            set.add(num);
         }
+        
         
         return false;
         
