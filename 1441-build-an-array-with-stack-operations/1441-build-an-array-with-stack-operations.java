@@ -1,6 +1,5 @@
 class Solution {
-    public List<String> buildArray(int[] target, int n) {
-        Stack<Integer> stack = new Stack();
+    public List<String> buildArray(int[] target, int n) {    
         List<String> answer = new ArrayList();
         String push = "Push";
         String pop = "Pop";
