@@ -2,12 +2,9 @@ class Solution(object):
     def findWordsContaining(self, words, x):        
         answer = []
         
-        s = 0
-        for word in words:
-            if x in word:
-                answer.append(s)
-            s += 1
+        for i in range(len(words)):
+            if x in words[i]:
+                answer.append(i)
         
         return answer
-        
         
