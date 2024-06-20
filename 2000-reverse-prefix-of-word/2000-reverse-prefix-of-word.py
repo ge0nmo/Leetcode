@@ -1,10 +1,9 @@
 class Solution(object):
     def reversePrefix(self, word, ch):
-        if ch not in word:
+        index = word.find(ch)
+        
+        if index == -1:
             return word
         
-        index = word.index(ch)
-        first = word[0 : index + 1][::-1]
-        last = word[index + 1:]
-        
-        return first + last
+        prefix = word[:index+1]
+        return prefix[::-1] + word[index + 1:]
