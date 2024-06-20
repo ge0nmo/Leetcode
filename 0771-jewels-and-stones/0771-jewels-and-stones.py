@@ -2,8 +2,10 @@ class Solution(object):
     def numJewelsInStones(self, jewels, stones):
         count = 0
         
-        for i in range(len(stones)):
-            if jewels.find(stones[i]) != -1:
+        jewels_set = set(jewels)
+        
+        for stone in stones:
+            if stone in jewels_set:
                 count += 1
         
         
