@@ -5,5 +5,4 @@ class Solution(object):
         if index == -1:
             return word
         
-        prefix = word[:index+1]
-        return prefix[::-1] + word[index + 1:]
+        return word[:index+1][::-1] + word[index + 1:]
