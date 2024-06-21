@@ -6,15 +6,11 @@ class Solution(object):
         if n == 1 or n == 2:
             return 1
         
-        a = 0
-        b = 1
-        c = 1
-        d = 0
+        a, b, c, d = 0, 1, 1, 0
+        
         for i in range(n - 2):
             d = a + b + c
-            a = b
-            b = c
-            c = d
+            a, b, c = b, c, d
             
         return d
         
