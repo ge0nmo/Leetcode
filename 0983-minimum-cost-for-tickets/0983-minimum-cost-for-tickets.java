@@ -35,11 +35,3 @@ class Solution {
     }
 }
 
-// recursive 
-
-// costs[0], costs[1], costs[2]
-
-// for문으로 costs를 순회하면서 티켓을 비교
-
-// 만약에 날짜가 남았다면 넘어가고, 만료되었다면 새로 산다
-
