@@ -27,7 +27,7 @@ class Solution {
             return list;
                
         
-        for(int i = 1; i < n; i++)
+        for(int i = 1; i < n; i += 2)
         {            
             int j = n - 1 - i;
             List<TreeNode> left = allPossibleFBT(i);
