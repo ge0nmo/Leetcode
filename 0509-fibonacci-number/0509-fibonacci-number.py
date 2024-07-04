@@ -6,17 +6,12 @@ class Solution(object):
         if n == 1:
             return 1            
         
-        a = 0
-        b = 1
-        c = 1
+        answer = [0, 1]
         
-        for i in range(2, n):
-            c = a + b
-            a = b
-            b = c
-            
+        for i in range(2, n + 1):
+            answer.append(answer[-2] + answer[-1])
         
-        return a + b
+        return answer[-1]
         
         
 # 0 1 1 2 3 5 
