@@ -1,10 +1,14 @@
 class Solution(object):
-    def twoSum(self, nums, target):               
-        for i in range(0, len(nums) - 1):
+    def twoSum(self, nums, target):
+        map = dict()
+        for i in range(0, len(nums)):
+            map[nums[i]] = i
+
+        for i in range(0, len(nums)):
+            rest = target - nums[i]
             
-            for j in range(i + 1, len(nums)):
-                
-                if nums[i] + nums[j] == target:
-                    return [i, j]
+            if map.get(rest) != None and map.get(rest) != i :
+                return [i, map.get(rest)]
         
         return []
+            
