@@ -12,18 +12,11 @@ class Solution(object):
                                     
             for i in range(2, rowIndex + 1):
                 subList = [1]                
-                prev = answer[-1]
                 
-                for j in range(1, i):
-                    n = prev[j] + prev[j -1]
-                    subList.append(n)
+                for j in range(1, i):                    
+                    subList.append(answer[-1][j] + answer[-1][j -1])
                     
                 subList.append(1)
                 answer.append(subList)
             
             return answer[-1]
-            
-        
-        
-        
-        
