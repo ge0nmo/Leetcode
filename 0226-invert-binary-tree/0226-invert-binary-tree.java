@@ -19,13 +19,27 @@ class Solution {
             return null;
         }
         
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
         
-        TreeNode left = invertTree(root.left);
-        TreeNode right = invertTree(root.right);
+        while(!stack.isEmpty()){
+            TreeNode cur = stack.pop();
+            
+            TreeNode temp = cur.left;
+            cur.left = cur.right;
+            cur.right = temp;
+            
+            if(cur.left != null){
+                stack.push(cur.left);
+            }
+            
+            if(cur.right != null){
+                stack.push(cur.right);
+            }
+            
+        }
         
-        root.left = right;
-        root.right = left;
+        return root;
         
-        return root;        
     }
 }
