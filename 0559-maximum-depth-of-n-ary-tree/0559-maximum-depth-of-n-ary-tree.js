@@ -15,18 +15,24 @@ var maxDepth = function(root) {
         return 0;
     }
     
-    function recursive(node, depth){
-        if(node === null){
-            return depth;
+    const queue = [root];
+    let depth = 0;
+    
+    while(queue.length > 0){
+        const size = queue.length;
+        
+        for(let i = 0; i < size; i++){
+            const cur = queue.shift();
+            
+            for(const child of cur.children){
+                if(child != null){
+                    queue.push(child);
+                }
+            }
         }
         
-        let max = depth;
-        for(const child of node.children){
-            max = Math.max(recursive(child, depth + 1), max);
-        }
-        
-        return max;
+        depth++;
     }
     
-    return recursive(root, 1);
+    return depth;
 };
