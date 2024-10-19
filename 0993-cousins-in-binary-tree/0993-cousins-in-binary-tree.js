@@ -31,8 +31,6 @@ var isCousins = function(root, x, y) {
             
             
             if(xArray[0] !== yArray[0] && xArray[1] === yArray[1]){
-                console.log(`x  = ${xArray}`);
-                console.log(`y  = ${yArray}`);
                 return true;
             }
         }
