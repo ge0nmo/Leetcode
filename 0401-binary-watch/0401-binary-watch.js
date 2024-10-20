@@ -10,12 +10,8 @@ var readBinaryWatch = function(turnedOn) {
     const answer = [];
     
     function formatting(h, m){
-        let hValue = h.toString();  
-        
-        let mValue = m.toString();
-        if(m < 10){
-            mValue = `0${m}`;
-        }
+        let hValue = h.toString();          
+        let mValue = m < 10 ? `0${m}` : m.toString();        
         
         return `${hValue}:${mValue}`;
     }
@@ -35,7 +31,7 @@ var readBinaryWatch = function(turnedOn) {
     let length = 0;
     for(let h = 0; h < 12; h++){
         for(let m = 0; m < 60; m++){
-            length = countOne(h) + countOne(m);
+            length = h.toString(2).replaceAll('0', '').length + m.toString(2).replaceAll('0', '').length;
             
             if(length == turnedOn){
                 const time = formatting(h, m);
