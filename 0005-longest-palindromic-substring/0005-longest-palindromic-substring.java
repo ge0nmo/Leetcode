@@ -40,10 +40,3 @@ class Solution {
     }
 }
 
-// palindrom을 찾는 메소드를 이용
-// right - left가 1이나 0이라면 palindrome이 아니므로 pass
-
-// babad
-// 01234
-
-
