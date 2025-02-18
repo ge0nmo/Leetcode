@@ -26,11 +26,6 @@ class Solution {
     }
 }
 
-// if either word1 or word2 is empty, return the length
-// create 2D array dp[word1.length][word2.length]
-// i + 1, j + 1 if word1.charAt(i) == word2.charAt(j);
-// else
-// insert? delete? replace?
 
 
 
