@@ -7,5 +7,5 @@ SELECT
 FROM 
     Patients
 WHERE
-    locate('DIAB1', conditions) = 1
-    or locate(' DIAB1', conditions) <> 0
+    conditions LIKE 'DIAB1%'
+    OR conditions LIKE '% DIAB1%'
