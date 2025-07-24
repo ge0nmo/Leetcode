@@ -3,6 +3,8 @@ class Solution {
     final int[] dy = {0, 1, 0, -1};
 
     public boolean exist(char[][] board, String word) {
+        if(!wordAvailable(board, word)) return false;
+
         boolean[][] visited = new boolean[board.length][board[0].length];
 
         for(int i = 0; i < board.length; i++){
@@ -35,6 +37,21 @@ class Solution {
 
         visited[row][col] = false;
         return false;
+    }
+
+    public boolean wordAvailable(char[][] board, String word)
+    {
+        Map<Character, Integer> map = new HashMap<>();
+        for(char[] row : board){
+            for(char ch : row){
+                map.put(ch, 1);
+            }
+        }
+
+        for(char ch : word.toCharArray()){
+            if(!map.containsKey(ch)) return false;
+        }
+        return true;
     }
 }
 
