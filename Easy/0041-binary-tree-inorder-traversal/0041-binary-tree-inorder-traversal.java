@@ -13,24 +13,22 @@
  *     }
  * }
  */
-class Solution {    
-    private List<Integer> list = new ArrayList();
+class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
-        dfs(root);
+        List<Integer> list = new ArrayList();
+        dfs(root, list);
+
         return list;
     }
 
-    private void dfs(TreeNode node)
+    public void dfs(TreeNode node, List<Integer> list)
     {
-        if(node == null) return;
+        if(node == null){
+            return;
+        }
 
-        dfs(node.left);
+        dfs(node.left, list);
         list.add(node.val);
-        dfs(node.right);
+        dfs(node.right, list);
     }
 }
-
-// 왼쪽부터 차례로 재귀
-// null인 경우 -1을 리턴
-// return 값이 -1일때 더 이상 왼쪽에 없다는 뜻이므로 node.val을 array에 추가
-// 
