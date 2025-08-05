@@ -14,29 +14,23 @@
  * }
  */
 class Solution {
-    private Map<Integer, List<Integer>> map = new HashMap();
-    
     public List<List<Integer>> levelOrder(TreeNode root) {
-        dfs(root, 0);
-
         List<List<Integer>> answer = new ArrayList();
-
-        Iterator<Integer> iterator = map.keySet().iterator();
-        while(iterator.hasNext()){
-            Integer key = iterator.next();
-            answer.add(map.get(key));
-        }
-
+        dfs(root, answer, 0);
         return answer;
     }
 
-    public void dfs(TreeNode node, int level)
+    public void dfs(TreeNode node, List<List<Integer>> answer, int level)
     {
         if(node == null) return;
 
-        map.computeIfAbsent(level, k -> new ArrayList<>()).add(node.val);
+        if(answer.size() <= level){
+            answer.add(new ArrayList<Integer>());
+        }
 
-        dfs(node.left, level + 1);
-        dfs(node.right, level + 1);
+        answer.get(level).add(node.val);
+
+        dfs(node.left, answer, level + 1);
+        dfs(node.right, answer, level + 1);
     }    
 }
