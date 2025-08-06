@@ -15,19 +15,19 @@
  */
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-        Map<Integer, Integer> map = new HashMap();
-        dfs(root, 0, map);
+        List<Integer> answer = new ArrayList();
+        dfs(root, 0, answer);
 
-        return map.values().stream().toList();
+        return answer;
     }
 
-    public void dfs(TreeNode node, int level, Map<Integer, Integer> map)
+    public void dfs(TreeNode node, int level, List<Integer> answer)
     {
         if(node == null) return;
 
-        map.put(level, node.val);
+        if(answer.size() == level) answer.add(node.val);
 
-        dfs(node.left, level + 1, map);
-        dfs(node.right, level + 1, map);        
+        dfs(node.right, level + 1, answer);   
+        dfs(node.left, level + 1, answer);             
     }
 }
